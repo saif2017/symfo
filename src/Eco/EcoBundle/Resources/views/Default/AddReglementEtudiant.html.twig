@@ -1,0 +1,100 @@
+{# empty Twig template #}
+{# empty Twig template #}
+
+
+
+{% extends "::base.html.twig" %}
+{% block body %}
+{{parent()}}
+<h1>Gestion Reglement Etudiant</h1>
+<form action="" method="post" >
+    
+    <table>
+        
+       
+        
+         <tr>
+        
+            <td>{{form_label (f.dateReg)}}</td>
+            <td>
+                {{form_errors (f.dateReg)}}
+                {{form_widget (f.dateReg)}}
+            </td>
+        
+        
+        </tr>  
+         <tr>
+        
+            <td>{{form_label (f.Matricule)}}</td>
+            <td>
+                {{form_errors (f.Matricule)}}
+                {{form_widget (f.Matricule)}}
+            </td>
+        
+        
+        </tr>  
+         <tr>
+        
+            <td>{{form_label (f.Annee)}}</td>
+            <td>
+                {{form_errors (f.Annee)}}
+                {{form_widget (f.Annee)}}
+            </td>
+        
+        
+        </tr>  
+         <tr>
+        
+            <td>{{form_label (f.mois)}}</td>
+            <td>
+                {{form_errors (f.mois)}}
+                {{form_widget (f.mois)}}
+            </td>
+        
+        
+        </tr>  
+         <tr>
+        
+            <td>{{form_label (f.trimestre)}}</td>
+            <td>
+                {{form_errors (f.trimestre)}}
+                {{form_widget (f.trimestre)}}
+            </td>
+        
+        
+        </tr>  
+        
+        
+        
+        
+        
+          
+        
+       <tr><td><input type="submit" /><td></tr>
+{{ form_widget(f)}}
+     
+   </table>
+
+    </form>
+<h1> Liste Reglement </h1>
+ <table border="1">
+     <tr>
+         <th>Id </th>
+         
+        
+     </tr>
+         {% for cl in res%}
+<tr>
+<td>{{cl.id}}</td>
+
+<td><a href="{{ path('supp_regE', {'id':cl.id })   }}"class="btn btn-sm btn-danger "> Supprimer</a></td>
+<td><a href="{{ path('edit_regE', {'id':cl.id })  }}"class="btn btn-sm btn-primary ">Modifie</a></td>
+
+</tr>
+{%else%}
+<tr><td>Aucun Reglement n'a trouvée</td></tr>
+{% endfor %}
+ </table>
+{% endblock %}
+
+

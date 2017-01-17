@@ -1,0 +1,5 @@
+_assetic:
+    resource: .
+    type: assetic
+_app:
+    resource: /var/www/hotel.com/public_html/projet_sym/Ges/app/config/routing_dev.yml

@@ -1,0 +1,58 @@
+{# empty Twig template #}
+
+
+
+{% extends "::base.html.twig" %}
+{% block body %}
+{{parent()}}
+<h1>Gestion Matiere</h1>
+<form action="" method="post" >
+    
+    <table>
+        
+       
+        
+         <tr>
+        
+            <td>{{form_label (f.Libelle_matiere)}}</td>
+            <td>
+                {{form_errors (f.Libelle_matiere)}}
+                {{form_widget (f.Libelle_matiere)}}
+            </td>
+        
+        
+        </tr>  
+        
+        
+        
+        
+          
+        
+       <tr><td><input type="submit" /><td></tr>
+{{ form_widget(f)}}
+     
+   </table>
+
+    </form>
+<h1> Liste Matieres </h1>
+ <table border="1">
+     <tr>
+         <th>Id Matiere</th>
+         
+        
+     </tr>
+         {% for cl in res%}
+<tr>
+<td>{{cl.id}}</td>
+
+<td><a href="{{ path('supp_mat', {'id':cl.id })   }}"class="btn btn-sm btn-danger "> Supprimer</a></td>
+<td><a href="{{ path('edit_mat', {'id':cl.id })  }}"class="btn btn-sm btn-primary ">Modifie</a></td>
+
+</tr>
+{%else%}
+<tr><td>Aucun matiere n'a trouvée</td></tr>
+{% endfor %}
+ </table>
+{% endblock %}
+
+

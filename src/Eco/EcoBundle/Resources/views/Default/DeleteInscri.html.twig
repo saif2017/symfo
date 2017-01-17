@@ -1,0 +1,132 @@
+{# empty Twig template #}
+{# empty Twig template #}
+{# empty Twig template #}
+
+{% extends "::base.html.twig" %}
+{% block body %}
+{{parent()}}
+<h1>Gestion Inscription</h1>
+<form action="" method="post" >
+    
+    <table>
+        <tr>
+        
+            <td>{{form_label (f.Date_Inscri)}}</td>
+            <td>
+                {{form_errors (f.Date_Inscri)}}
+                {{form_widget (f.Date_Inscri)}}
+            </td>
+        
+        
+        </tr>  
+      
+        
+        <tr>
+        
+            <td>{{form_label (f.Id_Etudiant)}}</td>
+            <td>
+                {{form_errors (f.Id_Etudiant)}}
+                {{form_widget (f.Id_Etudiant)}}
+            </td>
+        
+        
+        </tr>   
+        <tr>
+        
+            <td>{{form_label (f.Id_Classe)}}</td>
+            <td>
+                {{form_errors (f.Id_Classe)}}
+                {{form_widget (f.Id_Classe)}}
+            </td>
+        
+        
+        </tr>   
+        <tr>
+        
+            <td>{{form_label (f.Observation)}}</td>
+            <td>
+                {{form_errors (f.Observation)}}
+                {{form_widget (f.Observation)}}
+            </td>
+        
+        
+        </tr>   
+        
+        <tr>
+        
+            <td>{{form_label (f.Reglement)}}</td>
+            <td>
+                {{form_errors (f.Reglement)}}
+                {{form_widget (f.Reglement)}}
+            </td>
+        
+        
+        </tr>   
+        
+        <tr>
+        
+            <td>{{form_label (f.Montant)}}</td>
+            <td>
+                {{form_errors (f.Montant)}}
+                {{form_widget (f.Montant)}}
+            </td>
+        
+        
+        </tr>   
+        <tr>
+        
+            <td>{{form_label (f.NumPiece)}}</td>
+            <td>
+                {{form_errors (f.NumPiece)}}
+                {{form_widget (f.NumPiece)}}
+            </td>
+        
+        
+        </tr>   
+        <tr>
+        
+            <td>{{form_label (f.Echance)}}</td>
+            <td>
+                {{form_errors (f.Echance)}}
+                {{form_widget (f.Echance)}}
+            </td>
+        
+        
+        </tr>  
+        
+        
+         
+        
+        
+        
+        
+          
+        
+       <tr><td><input type="submit" /><td></tr>
+{{ form_widget(f)}}
+     
+   </table>
+
+    </form>
+<h1> Liste Inscription </h1>
+ <table border="1">
+     <tr>
+         <th>Id Inscriptiont</th>
+         
+        
+     </tr>
+         {% for cl in res%}
+<tr>
+<td>{{cl.id}}</td>
+
+
+<td><a href="{{ path('supp_insc', {'id':cl.id })   }}"class="btn btn-sm btn-danger "> Supprimer</a></td>
+<td><a href="{{ path('edit_insc', {'id':cl.id })  }}"class="btn btn-sm btn-primary ">Modifie</a></td>
+
+</tr>
+{%else%}
+<tr><td>Aucune inscription n'a trouvée</td></tr>
+{% endfor %}
+ </table>
+{% endblock %}
+{# empty Twig template #}

@@ -1,0 +1,62 @@
+{# empty Twig template #}
+{# empty Twig template #}
+
+{% extends "::base.html.twig" %}
+{% block body %}
+{{parent()}}
+<h1>Gestion Classes</h1>
+<form action="" method="post" >
+    <form action="" method="post" >
+    <li><a href="{{path('AddClasse')}}">ADD CLASSE</a></li>
+    <table>
+        
+        <tr>
+        
+            <td>{{form_label (f.Libelle_classe)}}</td>
+            <td>
+                {{form_errors (f.Libelle_classe)}}
+                {{form_widget (f.Libelle_classe)}}
+            </td>
+        
+        
+        </tr>   
+        
+        
+         
+        
+          
+        
+       
+        
+        
+        
+        
+        
+          
+        
+       <tr><td><input type="submit" /><td></tr>
+{{ form_widget(f)}}
+     
+   </table>
+
+    </form>
+<h1> liste Classe </h1>
+ <table border="1">
+     <tr>
+         <th>Id Classe</th>
+         
+        
+     </tr>
+         {% for cl in res%}
+<tr>
+<td>{{cl.id}}</td>
+
+<td><a href="{{ path('supp_classe', {'id':cl.id })   }}"class="btn btn-sm btn-danger ">Supprimer</a></td>
+<td><a href="{{ path('Edit_classe', {'id':cl.id })  }}"class="btn btn-sm btn-primary ">Modifier</a></td>
+
+</tr>
+{%else%}
+<tr><td>Aucune classe n'a trouvée</td></tr>
+{% endfor %}
+ </table>
+ {% endblock %}

@@ -1,0 +1,129 @@
+{# empty Twig template #}
+{# empty Twig template #}
+{# empty Twig template #}
+{# empty Twig template #}
+
+
+
+{% extends "::base.html.twig" %}
+{% block body %}
+{{parent()}}
+<h1>Gestion Reglement Professeur</h1>
+<form action="" method="post" >
+    
+    <table>
+        
+       
+        
+         <tr>
+        
+            <td>{{form_label (f.dateReg)}}</td>
+            <td>
+                {{form_errors (f.dateReg)}}
+                {{form_widget (f.dateReg)}}
+            </td>
+        
+        
+        </tr>  
+         <tr>
+        
+            <td>{{form_label (f.matricule)}}</td>
+            <td>
+                {{form_errors (f.matricule)}}
+                {{form_widget (f.matricule)}}
+            </td>
+        
+        
+        </tr>  
+         <tr>
+        
+            <td>{{form_label (f.annee)}}</td>
+            <td>
+                {{form_errors (f.annee)}}
+                {{form_widget (f.annee)}}
+            </td>
+        
+        
+        </tr>  
+         <tr>
+        
+            <td>{{form_label (f.mois)}}</td>
+            <td>
+                {{form_errors (f.mois)}}
+                {{form_widget (f.mois)}}
+            </td>
+        
+        
+        </tr>  
+         
+        
+         <tr>
+        
+            <td>{{form_label (f.taux)}}</td>
+            <td>
+                {{form_errors (f.taux)}}
+                {{form_widget (f.taux)}}
+            </td>
+        
+        
+        </tr>
+        <tr>
+        
+            <td>{{form_label (f.nbrHeur)}}</td>
+            <td>
+                {{form_errors (f.nbrHeur)}}
+                {{form_widget (f.nbrHeur)}}
+            </td>
+        
+        
+        </tr>
+        
+        <tr>
+        
+            <td>{{form_label (f.montant)}}</td>
+            <td>
+                {{form_widget (f.montant, {'value' : 
+({{dump (f.vars.value.nbrHeur)}} * {{dump (f.vars.value.taux)}}) 
+                    })}}
+ 
+
+                
+            </td>
+        
+        
+        </tr>
+        
+        
+        
+        
+        
+          
+        
+       <tr><td><input type="submit" /><td></tr>
+{{ form_widget(f)}}
+     
+   </table>
+
+    </form>
+<h1> Liste Reglement </h1>
+ <table border="1">
+     <tr>
+         <th>Id </th>
+         
+        
+     </tr>
+         {% for cl in res%}
+<tr>
+<td>{{cl.id}}</td>
+
+<td><a href="{{ path('supp_regP', {'id':cl.id })   }}"class="btn btn-sm btn-danger "> Supprimer</a></td>
+<td><a href="{{ path('edit_regP', {'id':cl.id })  }}"class="btn btn-sm btn-primary ">Modifie</a></td>
+
+</tr>
+{%else%}
+<tr><td>Aucun Reglement n'a trouvée</td></tr>
+{% endfor %}
+ </table>
+{% endblock %}
+
+

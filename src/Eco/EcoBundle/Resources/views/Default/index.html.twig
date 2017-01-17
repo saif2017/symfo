@@ -1,0 +1,26 @@
+
+{% extends "::base.html.twig" %}
+{% block body %}
+{{parent()}}
+
+
+ <h1> NOS ELEVES  </h1>
+ <table border="1">
+     <tr>
+         <th>Id Eleve</th>
+         
+        
+     </tr>
+         {% for cl in res%}
+<tr>
+<td>{{cl.id}}</td>
+
+<td><a href="{{ path('supp_etud', {'id':cl.id })   }}" class="btn btn-sm btn-danger "> Supprimer</a></td>
+<td><a href="{{ path('edit_etud', {'id':cl.id })  }}" class="btn btn-sm btn-primary ">Modifie</a></td>
+
+</tr>
+{%else%}
+<tr><td>Aucun eleve n'a trouvée</td></tr>
+{% endfor %}
+ </table>
+ {% endblock %}

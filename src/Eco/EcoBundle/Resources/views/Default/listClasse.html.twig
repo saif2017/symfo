@@ -1,0 +1,20 @@
+
+{# empty Twig template #}
+{% extends "::base.html.twig" %}
+{% block body %}
+{{parent()}}
+ <h1> liste Classes </h1>
+ <table border="1">
+     <tr>
+        
+         <th>Libelle</th>
+         
+         {% for cl in client%}
+<tr>
+<td>{{cl.id}}</td>
+<td>{{cl.Libelle_classe}}</td>
+
+</tr>
+{% endfor %}
+ </table>
+ {% endblock %}

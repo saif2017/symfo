@@ -1,0 +1,84 @@
+{# empty Twig template #}
+{# empty Twig template #}
+{# empty Twig template #}
+{# empty Twig template #}
+
+{% extends "::base.html.twig" %}
+{% block body %}
+{{parent()}}
+<h1>Gestion Professeurs</h1>
+<form action="" method="post" >
+    <li><a href="{{path('addProf')}}">ADD PROFESSEUR</a></li>
+    
+    <table>
+        
+       
+        
+         <tr>
+        
+            <td>{{form_label (f.libelle_prp)}}</td>
+            <td>
+                {{form_errors (f.libelle_prp)}}
+                {{form_widget (f.libelle_prp)}}
+            </td>
+        
+        
+        </tr>  
+        
+        
+        
+        
+         
+         
+        
+         <tr>
+        
+            <td>{{form_label (f.niveau)}}</td>
+            <td>
+                {{form_errors (f.niveau)}}
+                {{form_widget (f.niveau)}}
+            </td>
+        
+        
+        </tr>  
+        <tr>
+        
+            <td>{{form_label (f.genre)}}</td>
+            <td>
+                {{form_errors (f.genre)}}
+                {{form_widget (f.genre)}}
+            </td>
+        
+        
+        </tr>  
+        
+        
+        
+          
+        
+       <tr><td><input type="submit" /><td></tr>
+{{ form_widget(f)}}
+     
+   </table>
+
+    </form>
+<h1> Liste Professeurs </h1>
+ <table border="1">
+     <tr>
+         <th>Id Professeur</th>
+         
+        
+     </tr>
+         {% for cl in res%}
+<tr>
+<td>{{cl.id}}</td>
+
+<td><a href="{{ path('supp_prof', {'id':cl.id })   }}"class="btn btn-sm btn-danger "> Supprimer</a></td>
+<td><a href="{{ path('edit_prof', {'id':cl.id })  }}"class="btn btn-sm btn-primary ">Modifie</a></td>
+
+</tr>
+{%else%}
+<tr><td>Aucun Professeur n'a trouvée</td></tr>
+{% endfor %}
+ </table>
+ {% endblock %}
